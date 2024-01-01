@@ -4,8 +4,11 @@ import { MdHome } from "react-icons/md";
 import { motion } from "framer-motion";
 import { Logo } from "../assets";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
+  const { t } = useTranslation();
+
   const [isSideMenu, setIsSideMenu] = useState(false);
   const [user, setUser] = useState(null);
   return (
@@ -25,13 +28,13 @@ const Home = () => {
 
         <div className="overflow-hidden w-full flex flex-col gap-4">
           <Link to={"/home"}>
-            <img src={Logo} alt="Logo" className="object-contain w-72" />
+            <img src={Logo} alt={t("logo")} className="object-contain w-72" />
           </Link>
 
           <Link to={"/newProject"}>
             <div className="px-6 py-3 flex items-center justify-center rounded-xl border border-gray-400 cursor-pointer group hover:border-gray-200">
               <p className="text-gray-400 group-hover:text-gray-200 capitalize">
-                Start Coding
+                {t("startCoding")}
               </p>
             </div>
           </Link>
@@ -42,7 +45,7 @@ const Home = () => {
               className="flex items-center justify-center gap-6"
             >
               <MdHome className="text-primaryText text-xl" />
-              <p className="text-lg text-primaryText">Home</p>
+              <p className="text-lg text-primaryText">{t("home")}</p>
             </Link>
           )}
         </div>
